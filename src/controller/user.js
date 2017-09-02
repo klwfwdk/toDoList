@@ -1,8 +1,10 @@
 const Base = require('./base.js');
-
+const koa = require('koa')
+const app = require('app')
 module.exports = class extends Base {
   indexAction() {
-    this.body='hello world';
-    console.log('hello world');
+  
+  handle:'app';
+  
   }
 };
