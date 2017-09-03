@@ -21,7 +21,12 @@ module.exports = class extends think.Controller {
         code: coded,
         redirect_uri: "/"
       }
-    });
+    }, function (error, response, body) {
+      if (!error) {
+        console.log(response);
+      }
+    }
+    );
     this.body = "hello";
     console.log(k);
   }
