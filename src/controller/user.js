@@ -14,7 +14,7 @@ module.exports = class extends think.Controller {
     var request = require('request');
     let coded = this.ctx.param('code');
     console.log(coded);
-    request.post('https://github.com/login/oauth/access_token', {
+    var k = request.post('https://github.com/login/oauth/access_token', {
       from: {
         client_id: "b7a21a56f032455afa67",
         client_secret: "c29bd25a4543859e69bb8b68b2e30afe705e98bf",
@@ -22,6 +22,7 @@ module.exports = class extends think.Controller {
         redirect_uri: "/"
       }
     });
-this.body="hello";
+    this.body = "hello";
+    console.log(k);
   }
 }
