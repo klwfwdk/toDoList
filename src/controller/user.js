@@ -10,7 +10,7 @@ module.exports = class extends think.Controller {
      this.redirect(path);
   };
   async tokenAction(){
-   var code= ctx.post('code');
+   var code= this.post('code');
    var path = "https://api.github.com/user?access_token="+code;
    this.redirect(path);
   }
