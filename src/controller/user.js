@@ -19,14 +19,13 @@ module.exports = class extends think.Controller {
         client_id: "b7a21a56f032455afa67",
         client_secret: "c29bd25a4543859e69bb8b68b2e30afe705e98bf",
         code: coded,
-        redirect_uri: "/"
       }
     }, function (error, response, body) {
       if (!error) {
-        console.log(response);
+        console.log(response.access_token);
       }
     }
     );
-    this.body = "hello";
+   
   }
 }
