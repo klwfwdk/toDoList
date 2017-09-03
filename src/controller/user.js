@@ -13,7 +13,7 @@ module.exports = class extends think.Controller {
     var querystring = require('querystring');
     var request = require('request');
     let coded = this.ctx.param('code');
-    console.log(coded);
+   // console.log(coded);
     var k = request.post('https://github.com/login/oauth/access_token', {
       from: {
         client_id: "b7a21a56f032455afa67",
@@ -28,6 +28,5 @@ module.exports = class extends think.Controller {
     }
     );
     this.body = "hello";
-    console.log(k);
   }
 }
