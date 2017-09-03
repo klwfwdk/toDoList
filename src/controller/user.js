@@ -10,19 +10,18 @@ module.exports = class extends think.Controller {
     this.redirect(path);
   };
   async PostAction() {
-    var querystring = require('querystring'); 
-    var request= require('request');   
+    var querystring = require('querystring');
+    var request = require('request');
     let coded = this.ctx.param('code');
-   /* let data =from({
-      client_id: "b7a21a56f032455afa67",
-      client_secret: "c29bd25a4543859e69bb8b68b2e30afe705e98bf",
-      code:coded,
-      redirect_uri:"/"
-    })*/
-request.post('https://github.com/login/oauth/access_token',{from:{
-  client_id: "b7a21a56f032455afa67",
-  client_secret: "c29bd25a4543859e69bb8b68b2e30afe705e98bf",
-  code:coded,
-  redirect_uri:"/"
-}});
-}}
+    console.log(coded);
+    request.post('https://github.com/login/oauth/access_token', {
+      from: {
+        client_id: "b7a21a56f032455afa67",
+        client_secret: "c29bd25a4543859e69bb8b68b2e30afe705e98bf",
+        code: coded,
+        redirect_uri: "/"
+      }
+    });
+this.body="hello";
+  }
+}
