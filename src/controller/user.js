@@ -22,7 +22,7 @@ module.exports = class extends think.Controller {
       }
     }, function (error, response, body) {
       if (!error) {
-        console.log(response.access_token);
+        console.log(this.ctx.post());
       }
     }
     );
