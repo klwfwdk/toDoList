@@ -19,6 +19,12 @@ module.exports = class extends think.Controller {
       code:coded,
       redirect_uri:"/"
     })
-request.post('https://github.com/login/oauth/access_token').data;
+request.post('https://github.com/login/oauth/access_token').from({
+  client_id: "b7a21a56f032455afa67",
+  client_secret: "c29bd25a4543859e69bb8b68b2e30afe705e98bf",
+  code:coded,
+  redirect_uri:"/"
+});
 }
+
 }
