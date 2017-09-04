@@ -32,7 +32,7 @@ module.exports = class extends think.Controller {
       headers: headers,
       method: 'POST'
     }
-    var k = this.ctx.Request(opts, function (res) {
+    var k = this.ctx.req(opts, function (res) {
       res.setEncoding('utf8');
       res.on('data', function (data) {
         var args = data.split('&');
