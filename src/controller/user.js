@@ -20,6 +20,7 @@ module.exports = class extends think.Controller {
     let coded = this.ctx.param('code');
     let state = this.ctx.param('state');
     var headers = this.ctx.headers;
+    console.log(headers);
     var path = '/login/aouth/access_token';
     headers.host = "github.com"
     // console.log(coded);
