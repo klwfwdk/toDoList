@@ -34,7 +34,9 @@ module.exports = class extends think.Controller {
       method: 'POST'
     }
     var k = http.request(opts, function (res) {
+      console.log('hello')
       console.log(res)
+
       res.setEncoding('utf8');
       res.on('data', function (data) {
        console.log('hello')
