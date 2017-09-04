@@ -48,7 +48,7 @@ module.exports = class extends think.Controller {
       })
     }
     );
-    req.write(conents);
+    req.write(contents);
     req.end;
   }
 }
