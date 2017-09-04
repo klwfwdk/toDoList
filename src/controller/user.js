@@ -1,5 +1,6 @@
 const Base = require('./base.js');
 const request = require('request');
+const querystring = require('querystring');
 const http = require('http');
 const CONSUMER_KEY = "b7a21a56f032455afa67";
 const CONSUMER_SECRET = "c29bd25a4543859e69bb8b68b2e30afe705e98bf";
@@ -24,9 +25,12 @@ module.exports = class extends think.Controller {
     var path = '/login/aouth/access_token';
     headers.host = "github.com"
     // console.log(coded);
-    path += "?client_id:" + CONSUMER_KEY;
-    path += "&client_secret:" + CONSUMER_SECRET;
-    path += "&code:" + coded;
+    var contents = querystring.stringify({
+      client_id: CONSUMER_KEY,
+      client_secret: CONSUMER_SECRET,
+      code: coded
+    })
+
     var opts = {
       hostname: "github.com",
       port: '443',
@@ -34,19 +38,17 @@ module.exports = class extends think.Controller {
       headers: headers,
       method: 'POST'
     }
-    http.request(opts, function (res) {
-      console.log('hello')
-      console.log(res)
-      /*res.setEncoding('utf8');
+    var req = http.request(opts, function (res) {
+      res.setEncoding('utf8');
       res.on('data', function (data) {
-       console.log('hello')
         var args = data.split('&');
         var tokenInfo = args[0].split('=');
         var token = tokenInfo[1];
         console.log(token);
-    
-      })*/
+      })
     }
     );
+    req.write(conents);
+    req.end;
   }
 }
