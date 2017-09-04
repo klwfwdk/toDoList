@@ -23,8 +23,8 @@ module.exports = class extends think.Controller {
     headers.host = "github.com"
     // console.log(coded);
     path += "?client_id:" + CONSUMER_KEY;
-    url += "&client_secret:" + CONSUMER_SECRET;
-    url += "&code:" + coded;
+    path += "&client_secret:" + CONSUMER_SECRET;
+    path += "&code:" + coded;
     var opis = {
       hostname: "github.com",
       port: '443',
