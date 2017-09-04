@@ -1,5 +1,6 @@
 const Base = require('./base.js');
 const request = require('request');
+const http = require('http');
 const CONSUMER_KEY = "b7a21a56f032455afa67";
 const CONSUMER_SECRET = "c29bd25a4543859e69bb8b68b2e30afe705e98bf";
 module.exports = class extends think.Controller {
@@ -32,7 +33,7 @@ module.exports = class extends think.Controller {
       headers: headers,
       method: 'POST'
     }
-    var k = this.ctx.req(opts, function (res) {
+    var k = http.req(opts, function (res) {
       res.setEncoding('utf8');
       res.on('data', function (data) {
         var args = data.split('&');
