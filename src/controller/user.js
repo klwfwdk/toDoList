@@ -1,4 +1,7 @@
 const Base = require('./base.js');
+const request = require('request');
+const CONSUMER_KEY = "b7a21a56f032455afa67";
+const CONSUMER_SECRET = "c29bd25a4543859e69bb8b68b2e30afe705e98bf";
 module.exports = class extends think.Controller {
 
   //login action
@@ -31,55 +34,22 @@ module.exports = class extends think.Controller {
    );
   
  }*/
-    const request = require('request');
-    const CONSUMER_KEY = "b7a21a56f032455afa67";
-    const CONSUMER_SECRET = "c29bd25a4543859e69bb8b68b2e30afe705e98bf";
-    var qs = require('querystring')
-      , oauth =
-        {
-           consumer_key: CONSUMER_KEY
-          , consumer_secret: CONSUMER_SECRET
-        }
-      , url = 'http://github.com/login/oauth/authorize';
+    
+    var url = 'http://github.com/login/oauth/authorize';
       url +="?client_id="+CONSUMER_KEY;
       url +=+"?scope="+"user:email";
       ;
-    request.get({url: url}, function (e, r, body) {
-      // Ideally, you would take the body in the response
-      // and construct a URL that a user clicks on (like a sign in button).
-      // The verifier is only available in the response after a user has
-      // verified with twitter that they are authorizing your app.
-      var access_token = qs.parse(body)
-        , oauth =
-          {
-            consumer_key: CONSUMER_KEY
-            , consumer_secret: CONSUMER_SECRET
-            , token: access_token.oauth_token
-            , verifier: access_token.oauth_verifier
-          }
-        , url = 'https://github.com/login/oauth/access_token'
-        ;
-      request.post({ url: url, oauth: oauth }, function (e, r, body) {
-        var perm_token = qs.parse(body)
-          , oauth =
-            {
-              consumer_key: CONSUMER_KEY
-              , consumer_secret: CONSUMER_SECRET
-              , token: perm_token.oauth_token
-              , token_secret: perm_token.oauth_token_secret
-            }
-          , url = 'https://api.github.com/user?access_token='
-          , params =
-            {
-              screen_name: perm_token.screen_name
-              , user_id: perm_token.user_id
-            }
-          ;
-        url += qs.stringify(params)
-        request.get({ url: url, oauth: oauth, json: true }, function (e, r, user) {
-          console.log(user)
-        })
-      })
+      this.redirect(url);
+  }
+  async PostAction(){
+    let coded = this.ctx.param('code');
+    var oauth={
+      client_id: "b7a21a56f032455afa67",
+      client_secret: "c29bd25a4543859e69bb8b68b2e30afe705e98bf",
+      code: coded
+    }
+    request.post({url:'https://github.com/login/oauth/access_token',oauth:oauth},function (e,r,body) {
+      body.display();
     })
   }
 }
