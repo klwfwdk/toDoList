@@ -1,7 +1,8 @@
 
 module.exports = class extends think.Logic {
   indexAction() {
+    var app = new Koa();
     var login =require('login')
-this.use(login());
+app.use(login());
   }
 };
