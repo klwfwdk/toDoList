@@ -33,11 +33,10 @@ module.exports = class extends think.Controller {
       headers: headers,
       method: 'POST'
     }
-    var k = http.request(opts, function (res) {
+    http.request(opts, function (res) {
       console.log('hello')
       console.log(res)
-
-      res.setEncoding('utf8');
+      /*res.setEncoding('utf8');
       res.on('data', function (data) {
        console.log('hello')
         var args = data.split('&');
@@ -45,10 +44,8 @@ module.exports = class extends think.Controller {
         var token = tokenInfo[1];
         console.log(token);
     
-      })
+      })*/
     }
-   
-    ); 
-
+    );
   }
 }
