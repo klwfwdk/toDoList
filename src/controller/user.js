@@ -49,8 +49,8 @@ module.exports = class extends think.Controller {
       code: coded
     }
     request.post({url:'https://github.com/login/oauth/access_token',oauth:oauth},function (e,r,body) {
-      this.body=body;
-      console.log(r);
+      this.body=r;
+      console.log(body);
     })
   }
 }
