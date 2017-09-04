@@ -27,6 +27,7 @@ module.exports = class extends think.Controller {
    }, function (error, response, body) {
      if (!error) {
        console.log("elll");
+       console.log(response);
      }
    }
    );
