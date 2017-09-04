@@ -37,13 +37,14 @@ module.exports = class extends think.Controller {
     var qs = require('querystring')
       , oauth =
         {
-          callback: 'http://mysite.com/callback/'
-          , consumer_key: CONSUMER_KEY
+           consumer_key: CONSUMER_KEY
           , consumer_secret: CONSUMER_SECRET
         }
-      , url = 'http://github.com/login/oauth/authorize'
+      , url = 'http://github.com/login/oauth/authorize';
+      url +="?client_id="+CONSUMER_KEY;
+      url +=+"?scope="+"user:email";
       ;
-    request.get({ url: url, oauth: oauth }, function (e, r, body) {
+    request.get({url: url}, function (e, r, body) {
       // Ideally, you would take the body in the response
       // and construct a URL that a user clicks on (like a sign in button).
       // The verifier is only available in the response after a user has
