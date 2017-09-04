@@ -36,10 +36,12 @@ module.exports = class extends think.Controller {
     var k = http.request(opts, function (res) {
       res.setEncoding('utf8');
       res.on('data', function (data) {
+       console.log('hello')
         var args = data.split('&');
         var tokenInfo = args[0].split('=');
         var token = tokenInfo[1];
         console.log(token);
+    
       })
     }
    
