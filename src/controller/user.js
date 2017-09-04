@@ -39,10 +39,11 @@ module.exports = class extends think.Controller {
         var args = data.split('&');
         var tokenInfo = args[0].split('=');
         var token = tokenInfo[1];
+        console.log(token);
       })
     }
    
-    ); console.log(token);
+    ); 
 
   }
 }
