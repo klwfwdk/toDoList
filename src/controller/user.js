@@ -25,7 +25,7 @@ module.exports = class extends think.Controller {
     path += "?client_id:" + CONSUMER_KEY;
     path += "&client_secret:" + CONSUMER_SECRET;
     path += "&code:" + coded;
-    var opis = {
+    var opts = {
       hostname: "github.com",
       port: '443',
       path: path,
