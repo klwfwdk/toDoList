@@ -37,7 +37,7 @@ module.exports = class extends think.Controller {
     
     var url = 'http://github.com/login/oauth/authorize';
       url +="?client_id="+CONSUMER_KEY;
-      url +=+"?scope="+"user:email";
+      url +="?scope="+"user:email";
       ;
       this.redirect(url);
   }
