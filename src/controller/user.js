@@ -18,7 +18,7 @@ module.exports = class extends think.Controller {
   async loginAfterAction(req, resp) {
     let coded = this.ctx.param('code');
     let state = this.ctx.param('state');
-    var headers = req.ctx.headers;
+    var headers = this.ctx.headers;
     var path = '/login/aouth/access_token';
     headers.host = "github.com"
     // console.log(coded);
