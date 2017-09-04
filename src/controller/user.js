@@ -8,29 +8,39 @@ module.exports = class extends think.Controller {
   async loginAction() {
 
     let path = "http://github.com/login/oauth/authorize";
-   path += '?client_id=' + 'b7a21a56f032455afa67';
-   path += '&scope=' + 'user:email';
-   path += '&state=' + 'dataStr';
-   //转发到授权服务器
-   this.redirect(path);
+    path += '?client_id=' + 'b7a21a56f032455afa67';
+    path += '&scope=' + 'user:email';
+    path += '&state=' + 'dataStr';
+    //转发到授权服务器
+    this.redirect(path);
 
- };
- async PostAction() {
-   let coded = this.ctx.param('code');
-  // console.log(coded);
-  let url ="https://github.com/login/oauth/access_token"+"?client_id:"+CONSUMER_KEY;
-  url +="&clint_secret:"+CONSUMER_SECRET;
-  url += "&code:"+coded;
-   var k = request.get(url, function (error, response, body) {
-     if (!error) {
-       console.log("elll");
-       console.log(response);
-     }
-   }
-   );
-  
- 
-    
-    
+  };
+  async loginAfterAction(req, resp) {
+    let coded = this.ctx.param('code');
+    let state = this.ctx.param('state');
+    var headers = req.headers;
+    var path = '/login/aouth/access_token';
+    headers.host = "github.com"
+    // console.log(coded);
+    path += "?client_id:" + CONSUMER_KEY;
+    url += "&client_secret:" + CONSUMER_SECRET;
+    url += "&code:" + coded;
+    var opis = {
+      hostname: "github.com",
+      port: '443',
+      path: path,
+      headers: headers,
+      method: 'POST'
+    }
+    var k = https.request(opts, function (res) {
+      res.setEncoding('utf8');
+      res.on('data', function (data) {
+        var args = data.split('&');
+        var tokenInfo = args[0].split('=');
+        var token = tokenInfo[1];
+      })
+    }
+   
+    ); console.log(token);
   }
 }
