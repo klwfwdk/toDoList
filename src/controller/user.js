@@ -18,13 +18,10 @@ module.exports = class extends think.Controller {
  async PostAction() {
    let coded = this.ctx.param('code');
   // console.log(coded);
-   var k = request.get('https://github.com/login/oauth/access_token', {
-     from: {
-       client_id: "b7a21a56f032455afa67",
-       client_secret: "c29bd25a4543859e69bb8b68b2e30afe705e98bf",
-       code: coded,
-     }
-   }, function (error, response, body) {
+  let url ="https://github.com/login/oauth/access_token"+"?client_id:"+CONSUMER_KEY;
+  url +="&clint_secret:"+CONSUMER_SECRET;
+  url += "&code:"+coded;
+   var k = request.get(url, function (error, response, body) {
      if (!error) {
        console.log("elll");
        console.log(response);
