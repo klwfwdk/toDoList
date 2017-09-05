@@ -22,11 +22,11 @@ module.exports = class extends Base {
         var path = '/login/aouth/access_token';
         headers.host = "github.com"
         // console.log(coded);
-        var contents = querystring.stringify({
+        var contents = /*querystring.stringify(*/{
           client_id: CONSUMER_KEY,
           client_secret: CONSUMER_SECRET,
           code: coded
-        })
+        }/*)*/
     console.log(contents);
         var opts = {
           hostname: "github.com",
