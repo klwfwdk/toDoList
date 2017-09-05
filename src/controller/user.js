@@ -2,7 +2,10 @@ const Base = require('./base.js');
 const Koa = require('koa');
 var app = new Koa;
 //const login = require('login');
-
+const option ={
+  CONSUMER_KEY: "b7a21a56f032455afa67",
+  CONSUMER_SECRET : "c29bd25a4543859e69bb8b68b2e30afe705e98bf"
+}
 module.exports = class extends Base {
   async loginAction() {
     
@@ -23,8 +26,8 @@ module.exports = class extends Base {
         headers.host = "github.com"
         // console.log(coded);
         var contents = /*querystring.stringify(*/{
-          client_id: CONSUMER_KEY,
-          client_secret: CONSUMER_SECRET,
+          client_id: option.CONSUMER_KEY,
+          client_secret: option.CONSUMER_SECRET,
           code: coded
         }/*)*/
     console.log(contents);
