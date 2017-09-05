@@ -23,7 +23,7 @@ module.exports = class extends Base {
         let coded = this.ctx.param('code');
         let state = this.ctx.param('state');
         var headers = this.ctx.headers;
-        console.log(headers);
+       // console.log(headers);
         var path = '/login/aouth/access_token';
         headers.host = "github.com"
         // console.log(coded);
@@ -34,6 +34,7 @@ module.exports = class extends Base {
         })
     console.log(contents);
         var opts = {
+          host: "github.com",
           hostname: "github.com",
           //port: '443',
           path: path,
@@ -43,13 +44,16 @@ module.exports = class extends Base {
         var req = http.request(opts, function (res) {
           res.setEncoding('utf8');
           res.on('data', function (data) {
-            var args = data.split('&');
-            var tokenInfo = args[0].split('=');
-            var token = tokenInfo[1];
-            console.log(token);
+            //var args = data.split('&');
+            //var tokenInfo = args[0].split('=');
+            //var token = tokenInfo[1];
+            console.log(data);
           })
         }
         );
+        req.on('erro',function(e){
+          console.log(e.message);
+        })
         req.write(contents);
         req.end;
       }
