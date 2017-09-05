@@ -2,6 +2,7 @@ const Base = require('./base.js');
 const Koa = require('koa');
 var app = new Koa;
 var http= require("http") 
+const querystring =require('querystring')
 //const login = require('login');
 const option ={
   CONSUMER_KEY: "b7a21a56f032455afa67",
@@ -26,11 +27,11 @@ module.exports = class extends Base {
         var path = '/login/aouth/access_token';
         headers.host = "github.com"
         // console.log(coded);
-        var contents = /*querystring.stringify(*/{
+        var contents = querystring.stringify({
           client_id: option.CONSUMER_KEY,
           client_secret: option.CONSUMER_SECRET,
           code: coded
-        }/*)*/
+        })
     console.log(contents);
         var opts = {
           hostname: "github.com",
