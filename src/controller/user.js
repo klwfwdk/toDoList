@@ -43,7 +43,7 @@ module.exports = class extends Base {
       },
       method: 'POST'
     }
-    var req = this.request(opts, function (res) {
+    var req = this.ctx.request(opts, function (res) {
       res.setEncoding('utf8');
       res.on('data', function (data) {
         //var tokenInfo = args[0].spl
