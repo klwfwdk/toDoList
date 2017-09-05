@@ -26,7 +26,7 @@ module.exports = class extends Base {
     var path = '/login/aouth/access_token';
     headers.host = "github.com"
     // console.log(coded);
-    var data = querystring.stringify({
+    var datad = querystring.stringify({
       client_id: option.CONSUMER_KEY,
       client_secret: option.CONSUMER_SECRET,
       code: coded
@@ -47,15 +47,15 @@ module.exports = class extends Base {
       res.setEncoding('utf8');
       res.on('data', function (data) {
         console.log('holle')
-        var tokenInfo = args[0].spl
+      /*  var tokenInfo = args[0].spl
         var args = data.split('&');it('=');
-        var token = tokenInfo[1];
-        console.log("data", token);
+        var token = tokenInfo[1];*/
+        console.log("data",data);
       })
     }
     );
     console.log('data');
-    req.write(data);
+    req.write(datad);
     req.end;
   }
 };
