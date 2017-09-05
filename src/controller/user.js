@@ -20,14 +20,14 @@ module.exports = class extends Base {
     
       };
       async loginAfterAction(req, resp) {
-        let coded = this.ctx.param('code');
-        let state = this.ctx.param('state');
+        var coded = this.ctx.param('code');
+        var state = this.ctx.param('state');
         var headers = this.ctx.headers;
        // console.log(headers);
         var path = '/login/aouth/access_token';
         headers.host = "github.com"
         // console.log(coded);
-        var contents = querystring.stringify({
+        var data = querystring.stringify({
           client_id: option.CONSUMER_KEY,
           client_secret: option.CONSUMER_SECRET,
           code: coded
@@ -35,7 +35,7 @@ module.exports = class extends Base {
     //console.log(contents);
         var opts = {
           host: "github.com",
-          hostname: "github.com",
+         // hostname: "github.com",
           //port: '443',
           path: path,
           headers: headers,
@@ -43,20 +43,17 @@ module.exports = class extends Base {
         }
         var req = http.request(opts, function (res) {
           res.setEncoding('utf8');
-          res.on('contents', function (data) {
+          res.on('data', function (data) {
             //var args = data.split('&');
             //var tokenInfo = args[0].split('=');
             //var token = tokenInfo[1];
-            console.log('hello');
-            console.log(data);
+            console.log("data",data);
           })
         }
         );
-
-        req.on('erro',function(e){
-          console.log(e.message);
-        })
-        req.write(contents);
+        req.on;
+        console.log('data');
+        req.write(data);
         req.end;
       }
 };
