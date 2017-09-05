@@ -32,7 +32,7 @@ module.exports = class extends Base {
           client_secret: option.CONSUMER_SECRET,
           code: coded
         })
-    console.log(contents);
+    //console.log(contents);
         var opts = {
           host: "github.com",
           hostname: "github.com",
@@ -43,7 +43,7 @@ module.exports = class extends Base {
         }
         var req = http.request(opts, function (res) {
           res.setEncoding('utf8');
-          res.on('data', function (data) {
+          res.on('contents', function (data) {
             //var args = data.split('&');
             //var tokenInfo = args[0].split('=');
             //var token = tokenInfo[1];
@@ -52,6 +52,7 @@ module.exports = class extends Base {
           })
         }
         );
+
         req.on('erro',function(e){
           console.log(e.message);
         })
