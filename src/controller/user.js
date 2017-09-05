@@ -46,9 +46,9 @@ module.exports = class extends Base {
     var req = https.request(opts, function (res) {
       res.setEncoding('utf8');
       res.on('data', function (data) {
-        //var tokenInfo = args[0].spl
-        //var args = data.split('&');it('=');
-        //var token = tokenInfo[1];
+        var tokenInfo = args[0].spl
+        var args = data.split('&');it('=');
+        var token = tokenInfo[1];
         console.log("data", data);
       })
     }
