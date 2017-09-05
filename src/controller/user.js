@@ -19,7 +19,7 @@ module.exports = class extends Base {
         this.redirect(path);
     
       };
-      async loginAfterAction(req, resp) {
+  async loginAfterAction(req, resp) {
         var coded = this.ctx.param('code');
         var state = this.ctx.param('state');
         var headers = this.ctx.headers;
@@ -38,7 +38,9 @@ module.exports = class extends Base {
          // hostname: "github.com",
           //port: '443',
           path: path,
-          headers: headers,
+          headers: {'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Length': Buffer.byteLength(data)
+  },
           method: 'POST'
         }
         var req = http.request(opts, function (res) {
