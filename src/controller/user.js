@@ -53,7 +53,25 @@ module.exports = class extends Base {
       })
     }
     );
-    req.on;
+    req.on('response',function(){
+      
+      });
+      
+      req.on('connect',function(){
+      
+      });
+      
+      req.on('socket',function(){
+      
+      });
+      
+      req.on('upgrade',function(){
+      
+      });
+      
+      req.on('continue',function(){
+      
+      })
     console.log('data');
     req.write(data);
     req.end;
