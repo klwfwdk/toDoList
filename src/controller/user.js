@@ -54,7 +54,7 @@ module.exports = class extends Base {
       })
     }
     );
-    await req.write(datad);
+    req.write(datad);
     //req.end();
   }
 };
