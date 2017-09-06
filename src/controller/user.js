@@ -37,9 +37,9 @@ module.exports = class extends Base {
     path += '&client_secret='+option.clientSecret;
     path += '&code='+ coded;
     var opts = {
-      host: "github.com",
-      // hostname: "github.com",
-     // port: '443',
+      //host: "github.com",
+       hostname: "github.com",
+      port: '443',
       path: path,
       headers: headers/*{
         'Content-Type': 'application/x-www-form-urlencoded',
