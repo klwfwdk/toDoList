@@ -23,7 +23,7 @@ module.exports = class extends Base {
     var state = this.ctx.param('state');
     var headers = this.ctx.headers;
     // console.log(headers);
-    var path = '/login/aouth/access_token?';
+    var path = '/login/aouth/access_token';
     headers.host = "github.com"
     // console.log(coded);
     
@@ -32,21 +32,21 @@ module.exports = class extends Base {
       client_secret: option.CONSUMER_SECRET,
       code: coded
     })
-    //console.log(contents);
+    
     var opts = {
-      //host: "github.com",
+      host: "github.com",
       hostname: "github.com",
       port: '443',
       path: path,
-      headers:headers/* {
+      headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
         'Content-Length': Buffer.byteLength(datad)
-      }*/,
+      },
       method: 'POST'
     }
     var req = https.request(opts, function (res) {
       res.setEncoding('utf8');
-      res.on('data', function (data) {
+      res.on('data', function (data4) {
         /*var args = data.split('&');it('=');
         var tokenInfo = args[0].spl
         var token = tokenInfo[1];*/
