@@ -18,12 +18,12 @@ module.exports = class extends Base {
     this.redirect(path);
 
   };
-  async loginAfterAction() {
+  /*async*/ loginAfterAction() {
     var coded = this.ctx.param('code');
     var state = this.ctx.param('state');
     var headers = this.ctx.headers;
     // console.log(headers);
-    var path = '/login/aouth/access_token';
+    var path = '/login/aouth/access_token?';
     headers.host = "github.com"
     // console.log(coded);
     
@@ -50,12 +50,11 @@ module.exports = class extends Base {
         /*var args = data.split('&');it('=');
         var tokenInfo = args[0].spl
         var token = tokenInfo[1];*/
-        console.log("data",data);
+        console.log("ok:",data);
       })
     }
     );
     await req.write(datad);
-    console.log('data');
     //req.end();
   }
 };
