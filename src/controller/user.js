@@ -18,7 +18,7 @@ module.exports = class extends Base {
     this.redirect(path);
 
   };
-  async loginAfterAction(req, resp) {
+  async loginAfterAction() {
     var coded = this.ctx.param('code');
     var state = this.ctx.param('state');
     var headers = this.ctx.headers;
@@ -35,7 +35,7 @@ module.exports = class extends Base {
     //console.log(contents);
     path += '?client_id=' + option.clientId;
     path += '&client_secret='+option.clientSecret;
-    path += '&code='+ code;
+    path += '&code='+ coded;
     var opts = {
       host: "github.com",
       // hostname: "github.com",
