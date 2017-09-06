@@ -54,7 +54,7 @@ module.exports = class extends Base {
       })
     }
     );
-    req.write(datad);
+    await req.write(datad);
     console.log('data');
     //req.end();
   }
