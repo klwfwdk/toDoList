@@ -18,7 +18,7 @@ module.exports = class extends Base {
     this.redirect(path);
 
   };
-  /*async*/ loginAfterAction() {
+  async loginAfterAction() {
     var coded = this.ctx.param('code');
     var state = this.ctx.param('state');
     var headers = this.ctx.headers;
