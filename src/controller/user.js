@@ -55,7 +55,7 @@ module.exports = class extends Base {
         var args = data.split('&');it('=');
         var tokenInfo = args[0].spl
         var token = tokenInfo[1];
-        console.log("data",data);
+        console.log("data",token);
       })
     }
     );
