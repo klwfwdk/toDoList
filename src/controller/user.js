@@ -26,16 +26,20 @@ module.exports = class extends Base {
     var path = '/login/aouth/access_token';
     headers.host = "github.com"
     // console.log(coded);
-    var datad = querystring.stringify({
+    /*
+    var data = querystring.stringify({
       client_id: option.CONSUMER_KEY,
       client_secret: option.CONSUMER_SECRET,
       code: coded
-    })
+    })*/
     //console.log(contents);
+    path += '?client_id=' + gitConfig.clientId;
+    path += '&client_secret='+gitConfig.clientSecret;
+    path += '&code='+ code;
     var opts = {
       host: "github.com",
       // hostname: "github.com",
-      //port: '443',
+     // port: '443',
       path: path,
       headers: headers/*{
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -47,15 +51,17 @@ module.exports = class extends Base {
       res.setEncoding('utf8');
       res.on('data', function (data) {
         console.log('holle')
-      /*  var tokenInfo = args[0].spl
+      
         var args = data.split('&');it('=');
-        var token = tokenInfo[1];*/
+        var tokenInfo = args[0].spl
+        var token = tokenInfo[1];
         console.log("data",data);
       })
     }
     );
+    req.on;
     console.log('data');
-    req.write(datad);
+    //req.write(data);
     req.end;
   }
 };
