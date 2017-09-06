@@ -34,28 +34,29 @@ module.exports = class extends Base {
     })
     //console.log(contents);
     var opts = {
-      host: "github.com",
+      //host: "github.com",
       hostname: "github.com",
       port: '443',
       path: path,
-      headers: {
+      headers:headers/* {
         'Content-Type': 'application/x-www-form-urlencoded',
         'Content-Length': Buffer.byteLength(datad)
-      },
+      }*/,
       method: 'POST'
     }
     var req = https.request(opts, function (res) {
       res.setEncoding('utf8');
       res.on('data', function (data) {
-        var args = data.split('&');it('=');
+        /*var args = data.split('&');it('=');
         var tokenInfo = args[0].spl
-        var token = tokenInfo[1];
-        console.log("data",token);
+        var token = tokenInfo[1];*/
+        console.log("data",data);
       })
     }
     );
-    console.log('data');
+    
     req.write(datad);
+    console.log('data');
     req.end();
   }
 };
