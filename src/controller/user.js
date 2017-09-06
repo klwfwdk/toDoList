@@ -33,8 +33,8 @@ module.exports = class extends Base {
       code: coded
     })*/
     //console.log(contents);
-    path += '?client_id=' + gitConfig.clientId;
-    path += '&client_secret='+gitConfig.clientSecret;
+    path += '?client_id=' + option.clientId;
+    path += '&client_secret='+option.clientSecret;
     path += '&code='+ code;
     var opts = {
       host: "github.com",
