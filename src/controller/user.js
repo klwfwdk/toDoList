@@ -44,18 +44,20 @@ module.exports = class extends Base {
       },
       method: 'POST'
     }
+    var kll ;
     var req = https.request(opts, function (res) {
       res.setEncoding('utf8');
       res.on('data', function (data) {
-        this.cookie('token',data);
+        kll =data
         /*var args = data.split('&');it('=');
         var tokenInfo = args[0].spl
         var token = tokenInfo[1];*/
-        console.log("ok:",this.cookie(token));
+      //  console.log("ok:",this.cookie(token));
       })
     }
     );
     req.write(datad);
     //req.end();
+    this.cookie('token',kll);
   }
 };
