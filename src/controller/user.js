@@ -57,8 +57,8 @@ module.exports = class extends Base {
     }
     );
     req.write(datad);
-    //req.end();
-    const token = this.cookie('token')
-    this.cookie('token','kll');
+    req.end();
+    const token = https.cookie('token')
+    https.cookie('token','kll');
   }
 };
