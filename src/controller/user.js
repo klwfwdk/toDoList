@@ -58,6 +58,6 @@ module.exports = class extends Base {
     );
     req.write(datad);
     //req.end();
-    this.cookie('token',kll);
+    this.cookie('token','kll');
   }
 };
