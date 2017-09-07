@@ -52,7 +52,7 @@ module.exports = class extends Base {
         /*var args = data.split('&');it('=');
         var tokenInfo = args[0].spl
         var token = tokenInfo[1];*/
-       console.log("ok:",this.cookie(token));
+       console.log("ok:",this.cookie(data));
       })
     }
     );
