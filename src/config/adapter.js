@@ -54,9 +54,9 @@ exports.session = {
   type: 'file',
   common: {
     cookie: {
-      name: 'thinkjs'
-      // keys: ['werwer', 'werwer'],
-      // signed: true
+      name: 'thinkjs',
+      keys: ['werwer', 'werwer'],
+      signed: true
     }
   },
   file: {
@@ -80,20 +80,3 @@ exports.view = {
     handle: nunjucks
   }
 };
-
-const cookieSession = require('think-session-cookie');
-
-exports.session = {
-  type: 'cookie',
-  common: {
-    cookie: {
-      name: 'thinkjs',
-      keys: ['signature key'],
-      signed: true
-    }
-  },
-  /*file: {
-    handle: fileSession,
-    sessionPath: path.join(think.ROOT_PATH, 'runtime/session')
-  }*/
-}
