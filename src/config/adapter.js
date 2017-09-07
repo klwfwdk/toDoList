@@ -81,7 +81,7 @@ exports.view = {
   }
 };
 
-const fileSession = require('think-session-cookie');
+const cookieSession = require('think-session-cookie');
 
 exports.session = {
   type: 'cookie',
@@ -92,8 +92,8 @@ exports.session = {
       signed: true
     }
   },
-  file: {
+  /*file: {
     handle: fileSession,
     sessionPath: path.join(think.ROOT_PATH, 'runtime/session')
-  }
+  }*/
 }
