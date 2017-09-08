@@ -19,6 +19,45 @@ module.exports = class extends Base {
 
   };
   /*async*/ loginAfterAction() {
+    var coded = this.ctx.param('code');
+    var state = this.ctx.param('state');
+    var headers = this.ctx.headers;
+    // console.log(headers);
+    var path = '/login/aouth/access_token';
+    headers.host = "github.com"
+    // console.log(coded);
+    
+    var datad = querystring.stringify({
+      client_id: option.CONSUMER_KEY,
+      client_secret: option.CONSUMER_SECRET,
+      code: coded
+    })
+    
+    var opts = {
+      host: "github.com",
+      hostname: "github.com",
+      port: '443',
+      path: path,
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Length': Buffer.byteLength(datad)
+      },
+      method: 'POST'
+    }
+    var kll ;
+    var req = https.request(opts, function (res) {
+      res.setEncoding('utf8');
+      res.on('data', function (data) {
+      
+        /*var args = data.split('&');it('=');
+        var tokenInfo = args[0].spl
+        var token = tokenInfo[1];*/
+        this.cookie('token','data');
+      })
+    }
+    );
+    req.write(datad);
+    req.end();
     return this.display();
   }
 };
