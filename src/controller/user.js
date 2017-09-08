@@ -44,7 +44,7 @@ module.exports = class extends Base {
       },
       method: 'POST'
     }
-    var kll ;
+    var thiss=this ;
     var req = https.request(opts, function (res) {
       res.setEncoding('utf8');
       res.on('data', data=> {
@@ -52,7 +52,7 @@ module.exports = class extends Base {
         /*var args = data.split('&');it('=');
         var tokenInfo = args[0].spl
         var token = tokenInfo[1];*/
-        this.cookie('token',data);
+        thiss.cookie('token',data);
       })
     }
     );
