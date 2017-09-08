@@ -38,10 +38,10 @@ module.exports = class extends Base {
       hostname: "github.com",
       port: '443',
       path: path,
-      headers: {
+      headers: headers /*{
         'Content-Type': 'application/x-www-form-urlencoded',
         'Content-Length': Buffer.byteLength(datad)
-      },
+      }*/,
       method: 'POST'
     }
     var thiss=this ;
