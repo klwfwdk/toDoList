@@ -47,12 +47,12 @@ module.exports = class extends Base {
     var kll ;
     var req = https.request(opts, function (res) {
       res.setEncoding('utf8');
-      res.on('data', function (data) {
+      res.on('data', data=> {
       
         /*var args = data.split('&');it('=');
         var tokenInfo = args[0].spl
         var token = tokenInfo[1];*/
-        console.log('token',data);
+        this.cookie('token',data);
       })
     }
     );
